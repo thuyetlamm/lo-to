@@ -1,0 +1,14 @@
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  -webkit-scroll-behavior: smooth;
+}
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.6rem;
+  text-rendering: optimizeSpeed;
+}
+.checked {
+  background-color: #bdc3c7;
+  color: #fff;
+}
