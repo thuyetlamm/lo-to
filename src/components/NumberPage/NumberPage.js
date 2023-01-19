@@ -1,7 +1,15 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import './NumberPage.scss'
-
+import {Howl, Howler} from 'howler';
+import wait from '*/assets/audio/wait.mp3';
+import win from '*/assets/audio/win.mp3';
 function NumberPage({arrayNumber}) {
+  const soundWait = new Howl({
+    src: [wait]
+  });
+  const soundWin = new Howl({
+    src: [win]
+  });
   const handleClick = (id,index,idx,num,color) => {
     if(num === 0 ) return;
     const col = document.querySelector(`.${color}-${id}-${index}-${idx}`);
@@ -9,10 +17,15 @@ function NumberPage({arrayNumber}) {
     const row =  document.querySelectorAll(`.row-${id}-${index} td`);
     let check = 0;
       Object.values(row).forEach((v) =>  v.classList.contains('checked') && check++);
+    if (check === 4) {
+        soundWait.play();
+      }
     if (check === 5) {
-      alert('Đã có người kinh !')
+      soundWin.play();
+      alert('Chúc mừng bạn đã kinh 😃 🎉')
     }
   }
+
   return (
     <div className='loto-wrap'>
       <div className='loto-main'>

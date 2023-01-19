@@ -67,7 +67,7 @@ function NumberPageList(props) {
 
   return (
     
-    <div>
+    <div className='number-page-list'>
       {
         array.map((item,index) => (
           <NumberPage  arrayNumber={item} key={index}/>
